@@ -1,0 +1,5 @@
+Product Code	Description	Price
+H57	Tin o Beans	1.23
+C330	Fruity Drink	0.54
+BR7	Sliced Loaf	1.54
+DC9	Biscoff Spread	1.99
