@@ -87,7 +87,7 @@ public class SKU implements Serializable {
             priceColumn.add(price);
             this.setPrice(priceColumn);
         }
-        if(!" ".equals(price)){
+        if(!"Offer".equals(offer)){
             offerColumn.add(offer);
             this.setOffer(offerColumn);
         }

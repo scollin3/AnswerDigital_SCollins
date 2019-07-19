@@ -30,6 +30,9 @@ public class Store implements Offers {
         Store store = new Store();
         store.stockList();
         
+        Saving savings = new Saving();
+        
+        
         
 
         Till till = new Till();
@@ -65,8 +68,8 @@ public class Store implements Offers {
             //while (sku.getProductCode().contains(itemCode)){
                 // System.out.println(itemCode);
                 int indexNo = sku.getProductCode().indexOf(itemCode);
-                System.out.print(sku.getProductCode().get(indexNo));
-                System.out.print("  ");
+                //System.out.print(sku.getProductCode().get(indexNo));
+                //System.out.print("  ");
                 System.out.print(sku.getDescription().get(indexNo));
                 System.out.print("  ");
                 System.out.print(sku.getPrice().get(indexNo));
@@ -77,8 +80,8 @@ public class Store implements Offers {
         }
         System.out.println("");
         System.out.println("Total Price before Savings = " + df.format(till.getTotalPrice()));
-        System.out.println("Total Price after Savings = ");
-        System.out.println("Total Savings = ");
+        System.out.println("Total Price after Savings = " + ((till.getTotalPrice()) - savings.getTotalSaving()));
+        System.out.println("Total Savings = " + savings.getTotalSaving());
         System.out.println("--------------------------------");
        
         
