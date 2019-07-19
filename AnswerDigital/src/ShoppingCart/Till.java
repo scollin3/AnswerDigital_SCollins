@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class Till {
         ArrayList currentBasket;    
         ArrayList<String> basket = new ArrayList<String>();
+        Double totalPrice = 0.0;
            
     public ArrayList scan(String enteredCode){
 
@@ -23,24 +24,28 @@ public class Till {
        
 
            basket.add(enteredCode);
-           this.setBasket(basket);
+           this.setReceipt(basket);
        
        
        return basket;
     }
     
-    public ArrayList getReceipt(ArrayList currentItems){
-        ArrayList<String> finalReceipt = new ArrayList<String>();
-        
-        return finalReceipt;
-    }
     
-    public ArrayList getBasket(){
+    public ArrayList getReceipt(){
         return currentBasket;
     }
     
-    public void setBasket(ArrayList basket){
+    public void setReceipt(ArrayList basket){
        ArrayList<String> currentBasket = new ArrayList<String>();
        this.currentBasket = basket;
     }
+    
+    public Double getTotalPrice(){
+        return totalPrice;
+    }
+    
+    public void setTotalPrice(String totalPriceString){
+        this.totalPrice = this.totalPrice + Double.parseDouble(totalPriceString);
+    }
+    
 }

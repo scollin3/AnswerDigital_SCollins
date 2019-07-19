@@ -24,10 +24,12 @@ public class SKU implements Serializable {
     private String productCode;
     private String description;
     private BigDecimal price;
+    private String offer;
     
     private ArrayList productCodeArray;
     private ArrayList descriptionArray;
     private ArrayList priceArray;
+    private ArrayList offerArray;
     
     public String delimeter = ", ";
     
@@ -57,11 +59,13 @@ public class SKU implements Serializable {
     
     public void readFile() throws FileNotFoundException{
         
-        Scanner scanner = new Scanner(new File("N:\\University\\Jobs\\AnswerDigitial\\AnswerDigital\\src\\resources\\products.txt"));
+        
+        Scanner scanner = new Scanner(new File(getClass().getResource("/resources/products.txt").getFile()));
         
             ArrayList<String> productCodeColumn = new ArrayList<String>();
             ArrayList<String> descriptionColumn = new ArrayList<String>();
             ArrayList<String> priceColumn = new ArrayList<String>();        
+            ArrayList<String> offerColumn = new ArrayList<String>();
             
         while(scanner.hasNext()){
         String curLine = scanner.nextLine();
@@ -69,6 +73,7 @@ public class SKU implements Serializable {
         String productCode = splitted[0].trim();
         String description = splitted[1].trim();
         String price = splitted[2].trim();
+        String offer = splitted[3].trim(); //NOTE if Offer column is empty program will crash, add whitespace to Offer column after a tab to prevent this/will add a way to prevent this if I have time
         
         if(!"Product Code".equals(productCode)){
             productCodeColumn.add(productCode);
@@ -81,6 +86,10 @@ public class SKU implements Serializable {
         if(!"Price".equals(price)){
             priceColumn.add(price);
             this.setPrice(priceColumn);
+        }
+        if(!" ".equals(price)){
+            offerColumn.add(offer);
+            this.setOffer(offerColumn);
         }
     }
         
@@ -124,6 +133,10 @@ public class SKU implements Serializable {
     public ArrayList getPrice() {
         return priceArray;
     }
+ 
+    public ArrayList getOffer() {
+        return offerArray;
+    }
     
     //SET Value for productCode
     public void setProductCode(ArrayList productCodeColumn) {
@@ -141,6 +154,11 @@ public class SKU implements Serializable {
     public void setPrice(ArrayList priceColumn) {
        ArrayList<String> priceArray = new ArrayList<String>();
        this.priceArray = priceColumn;
+    }
+    
+    public void setOffer(ArrayList offerColumn) {
+       ArrayList<String> offerArray = new ArrayList<String>();
+       this.offerArray = offerColumn;
     }
 
     
