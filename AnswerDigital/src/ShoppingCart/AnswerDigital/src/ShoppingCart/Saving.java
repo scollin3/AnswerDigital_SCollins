@@ -24,10 +24,10 @@ public class Saving implements Serializable {
 
     private String sampleProperty;
 
-    private PropertyChangeSupport propertySupport;
+
 
     public Saving() {
-        propertySupport = new PropertyChangeSupport(this);
+        
     }
 
     public String getSavingDescription() {
@@ -40,15 +40,11 @@ public class Saving implements Serializable {
 
 
     public void setSavingDescription(String savingDescriptionInput) {
-        String oldValue = sampleProperty;
-        sampleProperty = savingDescriptionInput;
-        propertySupport.firePropertyChange(PROP_SAMPLE_PROPERTY, oldValue, sampleProperty);
+
     }
 
     public void setSavingType(String savingTypeInput) {
-        String oldValue = sampleProperty;
-        sampleProperty = savingTypeInput;
-        propertySupport.firePropertyChange(PROP_SAMPLE_PROPERTY, oldValue, sampleProperty);
+
     }
 
     public Double getTotalSaving(){
@@ -57,13 +53,6 @@ public class Saving implements Serializable {
     
     public void setTotalPrice(Double totalSavingCalc){
         this.totalSaving = totalSavingCalc;
-    }
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        propertySupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        propertySupport.removePropertyChangeListener(listener);
     }
 
 }
